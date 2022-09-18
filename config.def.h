@@ -6,6 +6,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx     = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -92,6 +93,10 @@ static Key keys[] = {
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
+    { MODKEY,                       XK_g,      setgaps,        {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_g,      setgaps,        {.i = +1 } },
+    { MODKEY|ControlMask|ShiftMask, XK_g,      setgaps,        {.i = 0  } },
 
     { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -35 $(pidof dwmblocks)") },
     { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -35 $(pidof dwmblocks)") },

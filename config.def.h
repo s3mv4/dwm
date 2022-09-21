@@ -100,6 +100,7 @@ static Key keys[] = {
 
     { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -35 $(pidof dwmblocks)") },
     { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -35 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("sudo xbacklight -dec 5; kill -36 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("sudo xbacklight -inc 5; kill -36 $(pidof dwmblocks)") },
     TAGKEYS(                        XK_1,                      0)

@@ -96,7 +96,6 @@ static Key keys[] = {
 
     { MODKEY,                       XK_g,      setgaps,        {.i = -1 } },
     { MODKEY|ShiftMask,             XK_g,      setgaps,        {.i = +1 } },
-    { MODKEY|ControlMask|ShiftMask, XK_g,      setgaps,        {.i = 0  } },
 
     { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -35 $(pidof dwmblocks)") },
     { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -35 $(pidof dwmblocks)") },

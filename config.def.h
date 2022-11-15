@@ -3,6 +3,7 @@
 /* custom variables */
 #define TERMINAL "st"
 #define BROWSER "librewolf"
+#define BROWSERCLASS "LibreWolf"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -32,7 +33,7 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    { BROWSER,    NULL,       NULL,       1 << 8,       0,           -1 },
+    { BROWSERCLASS,    NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */

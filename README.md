@@ -3,7 +3,7 @@
 ```pamixer```
 
 # Default programs (change in config.def.h)
-```st (terminal) (suckless)```
+```st (terminal) (my github repo)```
 ```librewolf (browser) (AUR)```
 ```dmenu (run prompt) (suckless)```
 ```slock (screen locker) (suckless)```
@@ -14,3 +14,6 @@
 
 # You also need to be able to run sudo without password (add this to your sudoers file)
 ```$USER ALL=(ALL) NOPASSWD: ALL```
+
+# Run this command to copy the xinitrc and picom config to their needed location
+```cp xinitrc ~/.xinitrc && cp picom.conf ~/.config/picom.conf```

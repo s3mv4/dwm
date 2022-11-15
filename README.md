@@ -15,5 +15,5 @@
 # You also need to be able to run sudo without password (add this to your sudoers file)
 ```$USER ALL=(ALL) NOPASSWD: ALL```
 
-# Run this command to copy the xinitrc and picom config to their needed location
-```cp xinitrc ~/.xinitrc && cp picom.conf ~/.config/picom.conf```
+# Run this command to copy the xinitrc, picom config and wallpaper to their needed location
+```cp xinitrc ~/.xinitrc && cp picom.conf ~/.config/picom.conf && cp wall.jpg ~/.wall.jpg```

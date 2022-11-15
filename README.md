@@ -1,6 +1,7 @@
 # Needed packages
-```acpilight```
-```pamixer```
+```acpilight (brightness)```
+```pamixer (volume)```
+```feh (wallpaper)```
 
 # Default programs (change in config.def.h)
 ```st (terminal) (my github repo)```

@@ -5,7 +5,7 @@
 
 # Default programs (change in config.def.h)
 ```st (terminal) (my github repo)```
-```librewolf (browser) (AUR)```
+```librewolf-bin (browser) (AUR)```
 ```dmenu (run prompt) (suckless)```
 ```slock (screen locker) (suckless)```
 ```dwmblocks (statusbar) (my github repo)```

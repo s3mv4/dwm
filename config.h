@@ -98,11 +98,11 @@ static Key keys[] = {
     { MODKEY,                       XK_g,      setgaps,        {.i = -1 } },
     { MODKEY|ShiftMask,             XK_g,      setgaps,        {.i = +1 } },
 
-    { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -35 $(pidof dwmblocks)") },
-    { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -35 $(pidof dwmblocks)") },
+    { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 2; kill -35 $(pidof dwmblocks)") },
+    { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 2; kill -35 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("sudo xbacklight -dec 5; kill -36 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("sudo xbacklight -inc 5; kill -36 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("sudo xbacklight -dec 2; kill -36 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("sudo xbacklight -inc 2; kill -36 $(pidof dwmblocks)") },
     TAGKEYS(                        XK_1,                      0)
         TAGKEYS(                        XK_2,                      1)
         TAGKEYS(                        XK_3,                      2)

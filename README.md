@@ -8,7 +8,7 @@
 ```st (terminal) (my github repo)```
 ```librewolf-bin (browser) (AUR)```
 ```dmenu (run prompt) (suckless)```
-```slock (screen locker) (suckless)```
+```slock (screen locker) (my github repo)```
 ```dwmblocks (statusbar) (my github repo)```
 
 # Add Nerd Font to .local/share/fonts to use icons for dwmblocks
@@ -19,3 +19,5 @@
 
 # Run this command to copy the xinitrc, picom config and wallpaper to their needed location
 ```cp xinitrc ~/.xinitrc && cp picom.conf ~/.config/picom.conf && cp wall.jpg ~/.wall.jpg```
+
+# Use ```xev``` for keycodes for your keybindings

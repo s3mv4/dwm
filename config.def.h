@@ -66,6 +66,9 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *browcmd[]  = { BROWSER, NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
+/* include special keys */
+#include <X11/XF86keysym.h>
+
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -98,11 +101,11 @@ static Key keys[] = {
     { MODKEY,                       XK_g,      setgaps,        {.i = -1 } },
     { MODKEY|ShiftMask,             XK_g,      setgaps,        {.i = +1 } },
 
-    { MODKEY,                       XK_minus,  spawn,          SHCMD("pamixer --allow-boost -d 2; kill -35 $(pidof dwmblocks)") },
-    { MODKEY,                       XK_equal,  spawn,          SHCMD("pamixer --allow-boost -i 2; kill -35 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("sudo xbacklight -dec 2; kill -36 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("sudo xbacklight -inc 2; kill -36 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioMute,                         spawn,          SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pamixer --allow-boost -i 2; kill -35 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("pamixer --allow-boost -d 2; kill -35 $(pidof dwmblocks)") },
+    { 0, XF86XK_MonBrightnessUp,                   spawn,          SHCMD("sudo xbacklight -inc 2; kill -36 $(pidof dwmblocks)") },
+    { 0, XF86XK_MonBrightnessDown,                 spawn,          SHCMD("sudo xbacklight -dec 2; kill -36 $(pidof dwmblocks)") },
     TAGKEYS(                        XK_1,                      0)
         TAGKEYS(                        XK_2,                      1)
         TAGKEYS(                        XK_3,                      2)

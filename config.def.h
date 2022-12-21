@@ -12,15 +12,51 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack Nerd Font:style=Regular:size=10", "monospace:size=10" };
 static const char dmenufont[]       = "Hack Nerd Font:style=Regular:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+
+//static const char col_gray1[]       = "#222222";
+//static const char col_gray2[]       = "#444444";
+//static const char col_gray3[]       = "#bbbbbb";
+//static const char col_gray4[]       = "#eeeeee";
+//static const char col_cyan[]        = "#005577";
+//static const char *colors[][3]      = {
+//    /*               fg         bg         border   */
+//    [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+//    [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+//};
+
+
+/* gruvbox colors */
+/* normal */
+#define BG          "#282828"
+#define N_RED       "#cc241d"
+#define N_GREEN     "#98971a"
+#define N_YELLOW    "#d79921"
+#define N_BLUE      "#458588"
+#define N_PURPLE    "#b16286"
+#define N_AQUA      "#689d6a"
+#define N_GRAY      "#a89984"
+/* bright */
+#define B_GRAY      "#928374"
+#define B_RED       "#fb4934"
+#define B_GREEN     "#b8bb26"
+#define B_YELLOW    "#fabd2f"
+#define B_BLUE      "#83a598"
+#define B_PURPLE    "#d3869b"
+#define B_AQUA      "#8ec07c"
+#define FG          "#ebdbb2"
+
+
+
+static const char norm_fg[]         = FG;
+static const char norm_bg[]         = BG;
+static const char norm_border[]     = N_GRAY;
+static const char sel_fg[]          = FG;
+static const char sel_bg[]          = N_GREEN;
+static const char sel_border[]      = N_GREEN;
 static const char *colors[][3]      = {
-    /*               fg         bg         border   */
-    [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+    /*               fg         bg          border   */
+    [SchemeNorm] = { norm_fg,   norm_bg,    norm_border },
+    [SchemeSel]  = { sel_fg,    sel_bg,     sel_border  },
 };
 
 /* tagging */
@@ -60,7 +96,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *browcmd[]  = { BROWSER, NULL };
 static const char *lockcmd[]  = { "slock", NULL };

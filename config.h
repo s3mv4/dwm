@@ -3,6 +3,9 @@
 /* custom variables */
 #define TERMINAL "st"
 #define BROWSER "firefox"
+#define BROWSERCLASS "firefox"
+#define ANDROID "android-studio"
+#define ANDROIDCLASS "jetbrains-studio"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -69,6 +72,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     { BROWSER,    NULL,       NULL,       1 << 8,       0,           -1 },
+    { ANDROIDCLASS,    NULL,       NULL,       1 << 7,       0,           -1 },
 };
 
 /* layout(s) */
@@ -98,8 +102,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
-static const char *browcmd[]  = { BROWSER, NULL };
 static const char *lockcmd[]  = { "slock", NULL };
+static const char *browcmd[]  = { BROWSER, NULL };
+static const char *andrcmd[]  = { ANDROID, NULL };
 
 /* include special keys */
 #include <X11/XF86keysym.h>
@@ -108,8 +113,9 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_w,      spawn,          {.v = browcmd } },
     { MODKEY,                       XK_x,      spawn,          {.v = lockcmd } },
+    { MODKEY,                       XK_w,      spawn,          {.v = browcmd } },
+    { MODKEY,                       XK_a,      spawn,          {.v = andrcmd } },
 
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

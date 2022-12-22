@@ -54,8 +54,8 @@ static const char norm_fg[]         = FG;
 static const char norm_bg[]         = BG;
 static const char norm_border[]     = N_GRAY;
 static const char sel_fg[]          = FG;
-static const char sel_bg[]          = N_GREEN;
-static const char sel_border[]      = N_GREEN;
+static const char sel_bg[]          = N_AQUA;
+static const char sel_border[]      = N_AQUA;
 static const char *colors[][3]      = {
     /*               fg         bg          border   */
     [SchemeNorm] = { norm_fg,   norm_bg,    norm_border },
@@ -63,7 +63,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "3", "4", "5", "6", "7", "", "" };
+static const char *tags[] = { "", "", "3", "4", "5", "6", "7", "", "" };
 
 static const Rule rules[] = {
     /* xprop(1):

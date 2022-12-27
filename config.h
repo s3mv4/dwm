@@ -50,12 +50,23 @@ static const char dmenufont[]       = "Hack Nerd Font:style=Regular:size=10";
 
 
 
+/* usual scheme */
 static const char norm_fg[]         = FG;
 static const char norm_bg[]         = BG;
 static const char norm_border[]     = N_GRAY;
 static const char sel_fg[]          = FG;
 static const char sel_bg[]          = N_AQUA;
 static const char sel_border[]      = N_AQUA;
+/* alternative scheme */
+//tatic const char norm_fg[]         = FG;
+//tatic const char norm_bg[]         = BG;
+//tatic const char norm_border[]     = N_GRAY;
+//tatic const char sel_fg[]          = N_AQUA;
+//tatic const char sel_bg[]          = BG;
+//tatic const char sel_border[]      = N_AQUA;
+
+
+
 static const char *colors[][3]      = {
     /*               fg         bg          border   */
     [SchemeNorm] = { norm_fg,   norm_bg,    norm_border },

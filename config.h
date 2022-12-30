@@ -6,6 +6,8 @@
 #define BROWSERCLASS "firefox"
 #define ANDROID "android-studio"
 #define ANDROIDCLASS "jetbrains-studio"
+#define MAIL "thunderbird"
+#define MAILCLASS "thunderbird"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -75,7 +77,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "", "" };
+static const char *tags[] = { "", "", "", "4", "5", "6", "", "", "" };
 
 static const unsigned int ulinepad	= 0;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -87,9 +89,10 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class      instance    title       tags mask     isfloating   monitor */
-    { BROWSER,    NULL,       NULL,       1 << 8,       0,           -1 },
-    { ANDROIDCLASS,    NULL,       NULL,       1 << 7,       0,           -1 },
+    /* class            instance    title       tags mask     isfloating   monitor */
+    { BROWSERCLASS,     NULL,       NULL,       1 << 8,       0,           -1 },
+    { ANDROIDCLASS,     NULL,       NULL,       1 << 7,       0,           -1 },
+    { MAILCLASS,        NULL,       NULL,       1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
@@ -122,6 +125,7 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 static const char *browcmd[]  = { BROWSER, NULL };
 static const char *andrcmd[]  = { ANDROID, NULL };
+static const char *mailcmd[]  = { MAIL, NULL };
 
 /* include special keys */
 #include <X11/XF86keysym.h>
@@ -133,6 +137,7 @@ static Key keys[] = {
     { MODKEY,                       XK_x,           spawn,              {.v = lockcmd } },
     { MODKEY,                       XK_w,           spawn,              {.v = browcmd } },
     { MODKEY,                       XK_a,           spawn,              {.v = andrcmd } },
+    { MODKEY,                       XK_e,           spawn,              {.v = mailcmd } },
 
     { MODKEY,                       XK_b,           togglebar,          {0} },
     { MODKEY,                       XK_j,           focusstack,         {.i = +1 } },

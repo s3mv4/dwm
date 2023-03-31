@@ -97,6 +97,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_exclam,                      7)
 	TAGKEYS(                        XK_equal,                       8)
 	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
+    { 0,                            XK_Print,       spawn,          SHCMD("scrot ~/%m-%d-%Y-%H%M%S.png") },
+    { ShiftMask,                    XK_Print,       spawn,          SHCMD("scrot ~/%m-%d-%Y-%H%M%S.png --select --line mode=edge") },
     { 0, XF86XK_AudioMute,                          spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -35 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioLowerVolume,                   spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -35 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioRaiseVolume,                   spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -35 $(pidof dwmblocks)") },

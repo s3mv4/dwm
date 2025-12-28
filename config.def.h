@@ -108,6 +108,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioMute,                           spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -35 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessDown,                   spawn,          SHCMD("brightnessctl set 5%-; kill -36 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessUp,                     spawn,          SHCMD("brightnessctl set 5%+; kill -36 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_s,            spawn,          SHCMD("screenshot select-clipboard") },
+	{ MODKEY|ShiftMask,             XK_s,            spawn,          SHCMD("screenshot select-clipboard-save") },
 };
 
 /* button definitions */

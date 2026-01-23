@@ -234,6 +234,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static void vsplit(Monitor *m);
 
 /* variables */
 static const char broken[] = "broken";
@@ -2179,4 +2180,31 @@ main(int argc, char *argv[])
 	cleanup();
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
+}
+
+void
+vsplit(Monitor *m)
+{
+    unsigned int i, n, h, w, x, y, ww;
+    Client *c;
+
+    for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+    if (n == 0)
+        return;
+
+    h = m->wh - 2*gappx;
+    w = (m->ww - (n+1)*gappx) / n;
+    x = m->wx + gappx;
+    y = m->wy + gappx;
+
+    for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
+        if (i == n - 1) {
+            ww = m->wx + m->ww - x - (2*c->bw) - gappx;
+        } else {
+            ww = w - (2*c->bw);
+        }
+
+        resize(c, x, y, ww, h - (2*c->bw), 0);
+        x += w + gappx;
+    }
 }

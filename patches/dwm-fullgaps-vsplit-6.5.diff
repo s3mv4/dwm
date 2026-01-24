@@ -1,5 +1,25 @@
+diff --git a/config.def.h b/config.def.h
+index 1468005..0082660 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -48,6 +48,7 @@ static const Layout layouts[] = {
+ 	{ "[]=",      tile },    /* first entry is default */
+ 	{ "><>",      NULL },    /* no layout function means floating behavior */
+ 	{ "[M]",      monocle },
++	{ "|||",      vsplit },
+ };
+ 
+ /* key definitions */
+@@ -85,6 +86,7 @@ static const Key keys[] = {
+ 	{ MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
+ 	{ MODKEY,                       XK_f,            setlayout,      {.v = &layouts[1]} },
+ 	{ MODKEY,                       XK_m,            setlayout,      {.v = &layouts[2]} },
++	{ MODKEY,                       XK_c,            setlayout,      {.v = &layouts[3]} },
+ 	{ MODKEY,                       XK_space,        setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,        togglefloating, {0} },
+ 	{ MODKEY,                       XK_asterisk,     view,           {.ui = ~0 } },
 diff --git a/dwm.c b/dwm.c
-index 6069a1a..8642ecc 100644
+index 6069a1a..563e503 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -234,6 +234,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
@@ -25,19 +45,19 @@ index 6069a1a..8642ecc 100644
 +    if (n == 0)
 +        return;
 +
-+    h = m->wh - 2*gappx;
-+    w = (m->ww - (n+1)*gappx) / n;
-+    x = m->wx + gappx;
-+    y = m->wy + gappx;
++    h = m->wh - 2*m->gappx;
++    w = (m->ww - (n+1)*m->gappx) / n;
++    x = m->wx + m->gappx;
++    y = m->wy + m->gappx;
 +
 +    for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
 +        if (i == n - 1) {
-+            ww = m->wx + m->ww - x - (2*c->bw) - gappx;
++            ww = m->wx + m->ww - x - (2*c->bw) - m->gappx;
 +        } else {
 +            ww = w - (2*c->bw);
 +        }
 +
 +        resize(c, x, y, ww, h - (2*c->bw), 0);
-+        x += w + gappx;
++        x += w + m->gappx;
 +    }
 +}

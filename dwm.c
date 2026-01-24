@@ -2192,19 +2192,19 @@ vsplit(Monitor *m)
     if (n == 0)
         return;
 
-    h = m->wh - 2*gappx;
-    w = (m->ww - (n+1)*gappx) / n;
-    x = m->wx + gappx;
-    y = m->wy + gappx;
+    h = m->wh - 2*m->gappx;
+    w = (m->ww - (n+1)*m->gappx) / n;
+    x = m->wx + m->gappx;
+    y = m->wy + m->gappx;
 
     for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
         if (i == n - 1) {
-            ww = m->wx + m->ww - x - (2*c->bw) - gappx;
+            ww = m->wx + m->ww - x - (2*c->bw) - m->gappx;
         } else {
             ww = w - (2*c->bw);
         }
 
         resize(c, x, y, ww, h - (2*c->bw), 0);
-        x += w + gappx;
+        x += w + m->gappx;
     }
 }
